@@ -1,0 +1,22 @@
+# http server endpoint
+listen: 0.0.0.0:8888
+# send notifications on template processing errors
+send_template_errors: true
+# telegram bot configuration
+telegram:
+    # chats in which bot will send messages
+    # (optional, that field will fill when bot adds/removes from chat)
+    chats:
+        - -123456789
+    # mapping telegram users to gitlab users (for mapUser() template function)
+    users:
+        # telegram name - gitlab name
+        tguser: gitlabuser
+    # show debug messages
+    debug: true
+    # telegram message parse mode (HTML, MARKDOWN)
+    parse_mode: HTML
+    # templates directory
+    templates: ./templates
+    # bot token
+    token: YOUR_TOKEN_HERE

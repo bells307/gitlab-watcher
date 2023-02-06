@@ -1,0 +1,7 @@
+{{ if and (eq .ObjectAttributes.State "opened") (eq .ObjectAttributes.Action "open") (not (hasPrefix .ObjectAttributes.Title "DRAFT:")) }}
+🔍 <b>{{ .User.Name }}</b> создал <b>Merge Request</b> "{{ .ObjectAttributes.Title }}" на проекте <i>{{ .Project.Name }}</i>:
+{{ .ObjectAttributes.URL }}
+{{ else if and (eq .ObjectAttributes.State "merged") (eq .ObjectAttributes.Action "merge") }}
+✅ <b>{{ .User.Name }}</b> слил изменения по <b>Merge Request</b> "{{ .ObjectAttributes.Title }}" на проекте <i>{{ .Project.Name }}</i>:
+{{ .ObjectAttributes.URL }}
+{{ end }}

@@ -1,0 +1,5 @@
+{{ if and (eq .ObjectAttributes.Status "success") (eq .ObjectAttributes.Ref .Project.DefaultBranch) }}
+🔨 Успешно завершен <b>Pipeline</b> на проекте <i>{{ .Project.Name }}</i> (ветка <i>{{ .ObjectAttributes.Ref }}</i>)
+{{ else if (eq .ObjectAttributes.Status "failed") }}
+🧨 <b>Pipeline</b> завершился с ошибкой на проекте <i>{{ .Project.Name }}</i> (ветка <i>{{ .ObjectAttributes.Ref }}</i>)
+{{ end }}

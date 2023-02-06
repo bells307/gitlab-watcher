@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+  bot:
+    image: ghcr.io/bells307/gitlab-watcher
+    command: gitlab-watcher -config=/opt/gitlab-watcher/config.yml
+    volumes:
+      - ${GH_CONFIG_FILE}:/opt/gitlab-watcher/config.yml
+      - ${GH_TELEGRAM_TEMPLATES_DIR}:/opt/gitlab-watcher/templates/telegram
+    ports: 
+      - "${GH_HTTP_LISTEN}:${GH_HTTP_LISTEN}"
